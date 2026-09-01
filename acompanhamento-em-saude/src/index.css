@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------------------
+   Tema — Tailwind v4
+   Na v4 o tema é declarado aqui no CSS, não num tailwind.config.js.
+   Cada variável abaixo vira automaticamente uma classe utilitária
+   (ex.: --color-marca-600 gera bg-marca-600, text-marca-600, border-marca-600).
+
+   Paleta: neutros (slate) + uma cor de ação. Sem gradiente, sem cor decorativa.
+   A interface é de trabalho: quem tem que se destacar é o dado, não o layout.
+--------------------------------------------------------------------------- */
+@theme {
+  --color-marca-50: oklch(0.97 0.02 240);
+  --color-marca-100: oklch(0.93 0.04 240);
+  --color-marca-500: oklch(0.62 0.15 250);
+  --color-marca-600: oklch(0.55 0.16 250);
+  --color-marca-700: oklch(0.48 0.15 250);
+
+  /* Âmbar = aviso que pede confirmação (nível 2 da Q10).
+     Deliberadamente distinto do vermelho, que é erro que bloqueia.
+     Misturar as duas cores ensina a usuária a ignorar as duas. */
+  --color-aviso-50: oklch(0.97 0.03 85);
+  --color-aviso-200: oklch(0.9 0.08 85);
+  --color-aviso-700: oklch(0.55 0.13 70);
+}
+
+/* ---------------------------------------------------------------------------
+   Base
+--------------------------------------------------------------------------- */
+html {
+  /* As usuárias podem estar de pé, no celular, durante um atendimento.
+     16px é o mínimo confortável; nada de texto de 12px em formulário. */
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Foco sempre visível: navegação por teclado é acessibilidade básica,
+   e o padrão do navegador some quando se reseta estilo de botão. */
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-marca-600;
+}
+
+/* Some com as setinhas de input[type=number]: num campo de pressão arterial
+   elas só atrapalham e permitem alterar o valor com scroll sem querer. */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}

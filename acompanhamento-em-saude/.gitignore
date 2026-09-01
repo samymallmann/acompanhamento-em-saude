@@ -1,0 +1,37 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Variáveis de ambiente (NUNCA versionar)
+.env
+.env.local
+.env.*.local
+
+# Pacotes gerados (nao versionar)
+*.zip
+
+# Fichas de campo geradas. NUNCA versionar: o arquivo carrega dados dos
+# atendidos embutidos, e num repositório eles ficariam registrados para sempre
+# no histórico do Git — inclusive se o repositório virar público um dia.
+ficha-de-campo-*.html
